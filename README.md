@@ -8,7 +8,8 @@ Développeur d'application - JavaScript React
 This project was bootstrapped with [Create React ArgentBank](https://github.com/facebook/create-react-app).\
 Routing by [React Router](https://reactrouter.com/en/main).\
 Typechecking with [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html).\
-State management by [Redux](https://redux.js.org/).
+State management by [Redux](https://redux.js.org/).\
+Icons by [React Icons](https://react-icons.github.io/react-icons).
 
 ## Prerequisites
 - [NodeJS](https://nodejs.org/en/).
