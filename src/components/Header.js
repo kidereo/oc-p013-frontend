@@ -19,7 +19,8 @@ export default function Header() {
                     <h1 className="sr-only">Argent Bank</h1>
                 </NavLink>
                 <div className="main-nav-flex">
-                    <NavLink to="/sign-in" className="main-nav-item">
+                    <NavLink to="/sign-in"
+                             className={({isActive}) => isActive ? "main-nav-item_active" : "main-nav-item"}>
                         <IconContext.Provider value={{size: "1.5em"}}>
                             <FaUserCircle/>
                         </IconContext.Provider>
