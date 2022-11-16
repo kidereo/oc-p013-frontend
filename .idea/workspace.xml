@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0d0a0b45-c3c6-460c-8a3e-9d4af95f50ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/data/api.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Profile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/slice.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArgentBank.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArgentBank.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/ab-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/ab-main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/SignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/SignIn.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/Header.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="443">
-              <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+            <state relative-caret-position="810">
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -38,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/redux/slice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="79" column="58" lean-forward="true" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="58" />
+            <state relative-caret-position="371">
+              <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
               <folding>
                 <element signature="e#0#63#0" expanded="true" />
               </folding>
@@ -93,8 +82,8 @@
         <option value="$PROJECT_DIR$/src/ArgentBank.js" />
         <option value="$PROJECT_DIR$/src/data/api.js" />
         <option value="$PROJECT_DIR$/src/pages/SignIn.js" />
-        <option value="$PROJECT_DIR$/src/redux/slice.js" />
         <option value="$PROJECT_DIR$/src/components/Header.js" />
+        <option value="$PROJECT_DIR$/src/redux/slice.js" />
       </list>
     </option>
   </component>
@@ -223,7 +212,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668004879192</updated>
-      <workItem from="1668004882059" duration="62147000" />
+      <workItem from="1668004882059" duration="62419000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Redux.">
       <created>1668031002523</created>
@@ -246,11 +235,18 @@
       <option name="project" value="LOCAL" />
       <updated>1668114321029</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="User sign in.">
+      <created>1668622608852</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668622608852</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62147000" />
+    <option name="totallyTimeSpent" value="62419000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="2" y="25" width="1277" height="1283" extended-state="0" />
@@ -286,7 +282,8 @@
     <MESSAGE value="Installed Redux." />
     <MESSAGE value="Added index page." />
     <MESSAGE value="Added sign-in page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added sign-in page." />
+    <MESSAGE value="User sign in." />
+    <option name="LAST_COMMIT_MESSAGE" value="User sign in." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -438,8 +435,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/redux/slice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="79" column="58" lean-forward="true" selection-start-line="79" selection-start-column="58" selection-end-line="79" selection-end-column="58" />
+        <state relative-caret-position="371">
+          <caret line="80" column="56" selection-start-line="80" selection-start-column="56" selection-end-line="80" selection-end-column="56" />
           <folding>
             <element signature="e#0#63#0" expanded="true" />
           </folding>
@@ -448,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Header.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="40" column="55" lean-forward="true" selection-start-line="40" selection-start-column="55" selection-end-line="40" selection-end-column="55" />
+        <state relative-caret-position="810">
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
