@@ -53,6 +53,14 @@ body {
     color: #42b983;
 }
 
+.main-nav-flex {
+     display: flex;
+ }
+
+.main-nav-flex a {
+    margin-left: 10px;
+}
+
 .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;
