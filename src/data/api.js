@@ -6,32 +6,38 @@ import axios from "axios";
  */
 const BASE_URL = "http://localhost:3001/api/v1/user/";
 const LOGIN_ENDPOINT = "login";
+const PROFILE_ENDPOINT = "profile";
 
 /**
- * Build up authentication header.
+ * Build up the header.
  *
  * @returns {{}|{authorization: string, "Content-Type": string}}
  */
-function authHeader() {
+function customHeader() {
     const token = JSON.parse(localStorage.getItem("accessToken"));
     if (token) {
         return {
             "Content-Type": "application/json",
-            authorization: "Bearer" + token
+            authorization: "Bearer " + token
         };
     } else {
-        return {}
+        return {};
     }
 }
 
 /**
- * Pass user details to the backend and return token if the user is cosher.
+ * Pass user credentials to the backend and return token if the user is cosher.
  *
- * @param userData
+ * @param credentials
  * @returns {Promise<AxiosResponse<T>>}
  */
-async function login(userData) {
-    return await axios.post(BASE_URL + LOGIN_ENDPOINT, userData)
+async function login(credentials) {
+    // return await axios.post(BASE_URL + LOGIN_ENDPOINT, credentials)
+    return await axios({
+        method: "post",
+        url: BASE_URL + LOGIN_ENDPOINT,
+        data: credentials
+    })
         .then((response) => {
             if (response.data.body.token) {
                 localStorage.setItem(
@@ -54,10 +60,24 @@ function logout() {
     }
 }
 
+/**
+ * Retrieve profile of the signed in user.
+ *
+ * @returns {Promise<AxiosResponse<T>>}
+ */
+async function retrieveProfile() {
+    return await axios({
+        method: "post",
+        url: BASE_URL + PROFILE_ENDPOINT,
+        headers: customHeader()
+    });
+}
+
 const authService = {
-    authHeader,
+    customHeader,
     login,
-    logout
+    logout,
+    retrieveProfile
 };
 
 export default authService;

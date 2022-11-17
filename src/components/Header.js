@@ -15,8 +15,11 @@ import {logout, reset} from "../redux/slice";
 export default function Header() {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const {user, subtoken, firstName, id} = useSelector((state) => state.auth);
+    const {user, firstName, id} = useSelector((state) => state.auth);
 
+    /**
+     * Handle user sign out.
+     */
     function logoutUser() {
         dispatch(logout());
         dispatch(reset());
@@ -32,35 +35,33 @@ export default function Header() {
                     <h1 className="sr-only">Argent Bank</h1>
                 </NavLink>
                 <>
-                    {
-                        user ? (
-                            <div className="main-nav-flex">
-                                <NavLink to="/profile"
-                                         className={({isActive}) => isActive ? "main-nav-item_active" : "main-nav-item"}>
-                                    <IconContext.Provider value={{size: "1.5em"}}>
-                                        <FaUserCircle/>
-                                        <span>{firstName}{subtoken}</span>
-                                    </IconContext.Provider>
-                                </NavLink>
-                                <Link to="" className="main-nav-item" onClick={logoutUser}>
-                                    <IconContext.Provider value={{size: "1.5em"}}>
-                                        <FaSignOutAlt/>
-                                        <span>Sign Out</span>
-                                    </IconContext.Provider>
-                                </Link>
-                            </div>
-                        ) : (
-                            <div className="main-nav-flex">
-                                <NavLink to="/sign-in"
-                                         className={({isActive}) => isActive ? "main-nav-item_active" : "main-nav-item"}>
-                                    <IconContext.Provider value={{size: "1.5em"}}>
-                                        <FaUserCircle/>
-                                    </IconContext.Provider>
-                                    <span>Sign In</span>
-                                </NavLink>
-                            </div>
-                        )
-                    }
+                    {user ? (
+                        <div className="main-nav-flex">
+                            <NavLink to={`/profile/${id}`}
+                                     className={({isActive}) => isActive ? "main-nav-item_active" : "main-nav-item"}>
+                                <IconContext.Provider value={{size: "1.5em"}}>
+                                    <FaUserCircle/>
+                                    <span>{firstName}</span>
+                                </IconContext.Provider>
+                            </NavLink>
+                            <Link to="" className="main-nav-item" onClick={logoutUser}>
+                                <IconContext.Provider value={{size: "1.5em"}}>
+                                    <FaSignOutAlt/>
+                                    <span>Sign Out</span>
+                                </IconContext.Provider>
+                            </Link>
+                        </div>
+                    ) : (
+                        <div className="main-nav-flex">
+                            <NavLink to="/sign-in"
+                                     className={({isActive}) => isActive ? "main-nav-item_active" : "main-nav-item"}>
+                                <IconContext.Provider value={{size: "1.5em"}}>
+                                    <FaUserCircle/>
+                                </IconContext.Provider>
+                                <span>Sign In</span>
+                            </NavLink>
+                        </div>
+                    )}
                 </>
             </div>
         </>

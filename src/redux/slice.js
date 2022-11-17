@@ -41,6 +41,20 @@ export const logout = createAsyncThunk("auth/logout", async () => {
 
 
 /**
+ * Async load profile action.
+ *
+ * @type {AsyncThunk<any, void, AsyncThunkConfig>}
+ */
+export const loadProfile = createAsyncThunk("auth/loadProfile", async (thunkAPI) => {
+    try {
+        const response = await authService.retrieveProfile();
+        return response.data.body;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+});
+
+/**
  * Redux auth slice.
  *
  * @type {Slice<{isLoading: boolean, firstName: string, lastName: string, password: string, isError: boolean, id: string, message: string, user: null, email: string, isSuccess: boolean, isRemembered: boolean}, {reset: authSlice.reducers.reset, rememberMe: authSlice.reducers.rememberMe}, string>}
@@ -76,13 +90,29 @@ export const authSlice = createSlice({
                 state.isSuccess = true;
                 state.successMessage = action.payload.message;
                 state.user = action.payload;
-                state.subtoken = action.payload.body.token.substr(action.payload.body.token.length-5);
+                state.subtoken = action.payload.body.token.substr(action.payload.body.token.length - 5);
             })
             .addCase(login.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
                 state.user = null;
+            })
+            .addCase(loadProfile.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(loadProfile.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.id = action.payload.id;
+                state.email = action.payload.email;
+                state.firstName = action.payload.firstName;
+                state.lastName = action.payload.lastName;
+            })
+            .addCase(loadProfile.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.errorMessage = action.payload;
             })
     }
 });
