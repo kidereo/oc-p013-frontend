@@ -11,8 +11,8 @@ import {useSelector, useDispatch} from "react-redux";
  * @constructor
  */
 export default function ProfileOutlet() {
-    const navigate = useNavigate();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const {id, isError, errorMessage, isRemembered, email} = useSelector((state) => state.auth);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export default function ProfileOutlet() {
     return (
         <>
             <Outlet/>
-            <span>If you can see this line, there is surely a problem.</span>
+            <span>If you can read this line, the app has most likely hit a Redux state manager problem.</span>
         </>
     );
 };

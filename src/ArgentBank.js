@@ -29,9 +29,8 @@ export default function ArgentBank() {
                     <Routes>
                         <Route index element={<Home/>}/>
                         <Route path="/sign-in" element={<SignIn/>}/>
-                        {/*<Route path="/profile" element={userSignedIn ? <Profile/> : <SignIn/>}/>*/}
-                        <Route path="/profile" element={userSignedIn && <ProfileOutlet/>}/>
-                        <Route path=":profileId" element={<Profile/>}/>
+                        <Route path="/profile" element={userSignedIn ? <ProfileOutlet/> : <SignIn/>}/>
+                        <Route path="/profile/:profileId" element={<Profile/>}/>
                     </Routes>
                 </main>
                 <footer>

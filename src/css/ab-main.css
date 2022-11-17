@@ -15,7 +15,7 @@ body {
 
 .main {
     flex: 1;
-    height: 700px;
+    height: 800px;
     position: relative;
 }
 
@@ -105,7 +105,7 @@ body {
     background-position: 0 -50px;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 300px;
+    height: 450px!important;
     position: relative;
 }
 
@@ -295,6 +295,11 @@ body {
 .header {
     color: #fff;
     margin-bottom: 2rem;
+}
+
+.header h1 {
+    margin-top: 0;
+    padding-top: 1em;
 }
 
 .transaction-button {
