@@ -70,7 +70,7 @@ export const editProfile = createAsyncThunk("auth/editProfile", async (user, thu
 /**
  * Redux auth slice.
  *
- * @type {Slice<{isLoading: boolean, firstName: string, lastName: string, password: string, isError: boolean, id: string, message: string, user: null, email: string, isSuccess: boolean, isRemembered: boolean}, {reset: authSlice.reducers.reset, rememberMe: authSlice.reducers.rememberMe}, string>}
+ * @type {Slice<{isLoading: boolean, firstName: string, lastName: string, password: string, isError: boolean, errorMessage: string, id: string, user: null, successMessage: string, email: string, isSuccess: boolean, isRemembered: boolean}, {reset: authSlice.reducers.reset, rememberMe: authSlice.reducers.rememberMe}, string>}
  */
 export const authSlice = createSlice({
     name: "auth",
