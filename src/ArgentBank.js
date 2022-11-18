@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
-import ProfileOutlet from "./pages/ProfileOutlet";
+//import ProfileOutlet from "./pages/ProfileOutlet";
 
 /**
  * Main app file.
@@ -29,7 +29,7 @@ export default function ArgentBank() {
                     <Routes>
                         <Route index element={<Home/>}/>
                         <Route path="/sign-in" element={<SignIn/>}/>
-                        <Route path="/profile" element={userSignedIn ? <ProfileOutlet/> : <SignIn/>}/>
+                        <Route path="/profile" element={userSignedIn ? <Profile/> : <SignIn/>}/>
                         <Route path="/profile/:profileId" element={<Profile/>}/>
                     </Routes>
                 </main>

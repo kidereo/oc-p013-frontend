@@ -247,6 +247,35 @@ body {
     padding: 0;
 }
 
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: auto;
+    padding: 1rem;
+}
+
+.edit-profile-form-inputs {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.edit-profile-form-buttons {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+}
+
+.edit-button {
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px;
+    width: 7em;
+}
+
 .account {
     display: flex;
     justify-content: space-between;
@@ -282,14 +311,6 @@ body {
 .account-content-wrapper {
     width: 100%;
     flex: 1;
-}
-
-.edit-button {
-    border-color: #00bc77;
-    background-color: #00bc77;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
 }
 
 .header {

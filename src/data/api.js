@@ -18,7 +18,7 @@ function customHeader() {
     if (token) {
         return {
             "Content-Type": "application/json",
-            authorization: "Bearer " + token
+            authorization: "Bearer " + token,
         };
     } else {
         return {};
@@ -34,7 +34,7 @@ function customHeader() {
 async function login(credentials) {
     // return await axios.post(BASE_URL + LOGIN_ENDPOINT, credentials)
     return await axios({
-        method: "post",
+        method: "POST",
         url: BASE_URL + LOGIN_ENDPOINT,
         data: credentials
     })
@@ -67,17 +67,34 @@ function logout() {
  */
 async function retrieveProfile() {
     return await axios({
-        method: "post",
+        method: "POST",
         url: BASE_URL + PROFILE_ENDPOINT,
         headers: customHeader()
     });
 }
 
+/**
+ * Edit profile of the signed in user
+ *
+ * @returns {Promise<AxiosResponse<T>>}
+ */
+async function editUserProfile(data) {
+    return await axios({
+        method: "PUT",
+        url: BASE_URL + PROFILE_ENDPOINT,
+        data: data,
+        headers: customHeader()
+    })
+        .then((response) => {
+            return response.data;
+        })
+}
+
 const authService = {
-    customHeader,
     login,
     logout,
-    retrieveProfile
+    retrieveProfile,
+    editUserProfile
 };
 
 export default authService;

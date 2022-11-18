@@ -14,6 +14,7 @@ const initialState = {
     firstName: "",
     lastName: "",
     isRemembered: false,
+    isLoading: false
 };
 
 /**
@@ -54,6 +55,19 @@ export const loadProfile = createAsyncThunk("auth/loadProfile", async (thunkAPI)
 });
 
 /**
+ * Async edit profile action.
+ *
+ * @type {AsyncThunk<any, void, AsyncThunkConfig>}
+ */
+export const editProfile = createAsyncThunk("auth/editProfile", async (user, thunkAPI) => {
+    try {
+        return await authService.editUserProfile(user);
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.message);
+    }
+});
+
+/**
  * Redux auth slice.
  *
  * @type {Slice<{isLoading: boolean, firstName: string, lastName: string, password: string, isError: boolean, id: string, message: string, user: null, email: string, isSuccess: boolean, isRemembered: boolean}, {reset: authSlice.reducers.reset, rememberMe: authSlice.reducers.rememberMe}, string>}
@@ -73,6 +87,7 @@ export const authSlice = createSlice({
             state.firstName = "";
             state.lastName = "";
             state.isRemembered = false;
+            state.isLoading = false;
         },
         rememberMe: (state, action) => {
             state.isRemembered = true;
@@ -80,18 +95,27 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
+            .addCase(login.pending, (state) => {
+                state.isLoading = true;
+            })
             .addCase(login.fulfilled, (state, action) => {
+                state.isLoading = false;
                 state.isSuccess = true;
                 state.successMessage = action.payload.message;
                 state.user = action.payload;
                 state.subtoken = action.payload.body.token.substr(action.payload.body.token.length - 5);
             })
             .addCase(login.rejected, (state, action) => {
+                state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
                 state.user = null;
             })
+            .addCase(loadProfile.pending, (state) => {
+                state.isLoading = true;
+            })
             .addCase(loadProfile.fulfilled, (state, action) => {
+                state.isLoading = false;
                 state.isSuccess = true;
                 state.id = action.payload.id;
                 state.email = action.payload.email;
@@ -99,6 +123,21 @@ export const authSlice = createSlice({
                 state.lastName = action.payload.lastName;
             })
             .addCase(loadProfile.rejected, (state, action) => {
+                state.isLoading = false;
+                state.isError = true;
+                state.errorMessage = action.payload;
+            })
+            .addCase(editProfile.pending, (state) => {
+                state.isLoading = true;
+            })
+            .addCase(editProfile.fulfilled, (state, action) => {
+                state.isLoading = false;
+                state.isSuccess = true;
+                state.firstName = action.payload.firstName;
+                state.lastName = action.payload.lastName;
+            })
+            .addCase(editProfile.rejected, (state, action) => {
+                state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
             })
