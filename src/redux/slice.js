@@ -6,7 +6,6 @@ const initialState = {
     user: user ? user : null,
     isError: false,
     isSuccess: false,
-    isLoading: false,
     successMessage: "",
     errorMessage: "",
     id: "",
@@ -66,7 +65,6 @@ export const authSlice = createSlice({
         reset: (state) => {
             state.isError = false;
             state.isSuccess = false;
-            state.isLoading = false;
             state.successMessage = "";
             state.errorMessage = "";
             state.id = "";
@@ -82,27 +80,18 @@ export const authSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(login.pending, (state) => {
-                state.isLoading = true;
-            })
             .addCase(login.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.isSuccess = true;
                 state.successMessage = action.payload.message;
                 state.user = action.payload;
                 state.subtoken = action.payload.body.token.substr(action.payload.body.token.length - 5);
             })
             .addCase(login.rejected, (state, action) => {
-                state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
                 state.user = null;
             })
-            .addCase(loadProfile.pending, (state) => {
-                state.isLoading = true;
-            })
             .addCase(loadProfile.fulfilled, (state, action) => {
-                state.isLoading = false;
                 state.isSuccess = true;
                 state.id = action.payload.id;
                 state.email = action.payload.email;
@@ -110,7 +99,6 @@ export const authSlice = createSlice({
                 state.lastName = action.payload.lastName;
             })
             .addCase(loadProfile.rejected, (state, action) => {
-                state.isLoading = false;
                 state.isError = true;
                 state.errorMessage = action.payload;
             })

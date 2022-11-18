@@ -22,7 +22,7 @@ export default function SignIn() {
     const dispatch = useDispatch();
     const [checked, setChecked] = useState(false);
 
-    const {user, isError, isSuccess, isLoading, errorMessage, successMessage} = useSelector((state => state.auth));
+    const {user, isError, isSuccess, errorMessage, successMessage} = useSelector((state => state.auth));
 
     useEffect(() => {
         if (isError) {
@@ -59,14 +59,14 @@ export default function SignIn() {
      * @param event
      */
     function submitUserData(event) {
-        const userData = {
+        const credentials = {
             email,
             password
         };
         event.preventDefault();
-        if (!userData.email) alert("Please type your email!");
-        else if (!userData.password) alert("Please type your password!");
-        else dispatch(login(userData));
+        if (!credentials.email) alert("Please type your email!");
+        else if (!credentials.password) alert("Please type your password!");
+        else dispatch(login(credentials));
     }
 
     return (
