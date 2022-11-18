@@ -57,6 +57,7 @@ export default function Profile() {
         setUpdateForm(false);
         dispatch(editProfile(userData));
         dispatch(loadProfile());
+        window.location.reload();
     }
 
     if(isLoading) return <Loader/>;

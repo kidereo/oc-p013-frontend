@@ -1,5 +1,6 @@
 import "./css/normalize.css";
 import "./css/ab-main.css";
+import "./css/loader.css";
 import React from "react";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {useSelector} from "react-redux";
