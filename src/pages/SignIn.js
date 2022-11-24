@@ -87,9 +87,9 @@ export default function SignIn() {
                             <input type="password" id="password" name="password" value={password} onChange={updateFormDataState}/>
                         </div>
                         <div className="input-remember">
-                            <input type="checkbox" id="rememberMe" name="rememberMe"
+                            <input type="checkbox" id="remember-me" name="remember-me"
                                    onChange={(e) => setChecked(e.target.checked)}/>
-                            <label htmlFor="rememberMe">Remember me</label>
+                            <label htmlFor="remember-me">Remember me</label>
                         </div>
                         <button type="submit" className="sign-in-button">Sign In</button>
                     </form>

@@ -1,12 +1,5 @@
 import axios from "axios";
-
-/**
- * API url endpoints.
- * @type {string}
- */
-const BASE_URL = "http://localhost:3001/api/v1/user/";
-const LOGIN_ENDPOINT = "login";
-const PROFILE_ENDPOINT = "profile";
+import {apiConfig} from "../config";
 
 /**
  * Build up the header.
@@ -14,7 +7,7 @@ const PROFILE_ENDPOINT = "profile";
  * @returns {{}|{authorization: string, "Content-Type": string}}
  */
 function customHeader() {
-    const token = JSON.parse(localStorage.getItem("accessToken"));
+    const token = JSON.parse(localStorage.getItem("authToken"));
     if (token) {
         return {
             "Content-Type": "application/json",
@@ -35,13 +28,13 @@ async function login(credentials) {
     // return await axios.post(BASE_URL + LOGIN_ENDPOINT, credentials)
     return await axios({
         method: "POST",
-        url: BASE_URL + LOGIN_ENDPOINT,
+        url: apiConfig.BASE_URL + apiConfig.LOGIN_ENDPOINT,
         data: credentials
     })
         .then((response) => {
             if (response.data.body.token) {
                 localStorage.setItem(
-                    "accessToken",
+                    "authToken",
                     JSON.stringify(response.data.body.token)
                 );
             }
@@ -54,7 +47,7 @@ async function login(credentials) {
  */
 function logout() {
     if (localStorage.getItem("rememberMe")) {
-        localStorage.removeItem("accessToken");
+        localStorage.removeItem("authToken");
     } else {
         localStorage.clear();
     }
@@ -68,7 +61,7 @@ function logout() {
 async function retrieveProfile() {
     return await axios({
         method: "POST",
-        url: BASE_URL + PROFILE_ENDPOINT,
+        url: apiConfig.BASE_URL + apiConfig.PROFILE_ENDPOINT,
         headers: customHeader()
     });
 }
@@ -81,7 +74,7 @@ async function retrieveProfile() {
 async function editUserProfile(data) {
     return await axios({
         method: "PUT",
-        url: BASE_URL + PROFILE_ENDPOINT,
+        url: apiConfig.BASE_URL + apiConfig.PROFILE_ENDPOINT,
         data: data,
         headers: customHeader()
     })

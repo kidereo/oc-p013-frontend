@@ -41,10 +41,10 @@ export default function Profile() {
      * @param event
      */
     function updateFormDataState(event) {
-        setUserData((previousState) => ({
-            ...previousState,
+        setUserData({
+            ...userData,
             [event.target.name]: event.target.value
-        }));
+        });
     }
 
     /**
@@ -54,13 +54,13 @@ export default function Profile() {
      */
     function submitUpdateForm(event) {
         event.preventDefault();
-        setUpdateForm(false);
         dispatch(editProfile(userData));
+        setUpdateForm(false);
         dispatch(loadProfile());
         window.location.reload();
     }
 
-    if(isLoading) return <Loader/>;
+    if (isLoading) return <Loader/>;
 
     return (
         <>
@@ -69,7 +69,7 @@ export default function Profile() {
                     <h1>{!updateForm ? `Welcome back, ${firstName} ${lastName}` : `${firstName}'s profile change in process`}</h1>
                     <p>ClientID: {id}</p>
                     {updateForm ? (
-                        <form className="edit-profile-form">
+                        <form className="edit-profile-form" key={id}>
                             <div className="edit-profile-form-inputs">
                                 <div className="input-wrapper">
                                     <label htmlFor="lastName">Last Name</label>
@@ -79,6 +79,7 @@ export default function Profile() {
                                         id="lastName"
                                         defaultValue={lastName}
                                         onChange={updateFormDataState}
+                                        placeholder="Last Name here"
                                     />
                                 </div>
                                 <div className="input-wrapper">
@@ -87,8 +88,9 @@ export default function Profile() {
                                         type="text"
                                         name="firstName"
                                         id="firstName"
-                                        defaultValue={firstName}
                                         onChange={updateFormDataState}
+                                        defaultValue={firstName}
+                                        placeholder="First Name here"
                                     />
                                 </div>
                             </div>
@@ -115,7 +117,6 @@ export default function Profile() {
                             Edit Name
                         </button>
                     )}
-
                 </div>
                 <Accounts/>
             </div>
