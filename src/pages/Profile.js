@@ -23,7 +23,7 @@ export default function Profile() {
         if (isError) alert(errorMessage);
         if (isRemembered) localStorage.setItem("rememberMe", JSON.stringify({isRemembered, email}));
         dispatch(loadProfile());
-        navigate(`/profile/${id}`);
+        //navigate(`/profile/${id}`);
     }, [dispatch, navigate, isError, errorMessage, id, isRemembered, email]);
 
     /**
