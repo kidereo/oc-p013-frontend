@@ -14,7 +14,7 @@ Loader animation from [CSS Loaders & Spinners](https://cssloaders.github.io/).
 ## Phase 2 - Transactions API
 Documentation for Phase 2 was written in accordance with the [OpenAPI Specification (v3.0.3)](https://swagger.io/specification/).
 
-You are welcome to inspect the [source file](https://github.com/kidereo/oc-p013-frontend/blob/master/api-transaction-module.yaml) by pasting its content inside a new [Swagger Editor](https://editor-next.swagger.io/) window. 
+You will find it easier to inspect the [source file](https://github.com/kidereo/oc-p013-frontend/blob/master/api-transaction-module.yaml) by pasting its content inside a [Swagger Editor](https://editor-next.swagger.io/) window. 
 
 ## Prerequisites
 - [NodeJS](https://nodejs.org/en/).
