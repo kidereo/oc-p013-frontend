@@ -15,7 +15,7 @@ servers:
 paths:
   /accounts/{accountId}/transactions:
     get:
-      description: Obtain a list of transactions on a certain account.
+      description: Obtain a list of transactions on a specific account.
       summary: List transactions
       tags:
         - Transaction Module
@@ -31,31 +31,14 @@ paths:
             type: integer
             minimum: 5
             maximum: 50
-            example: 6
+            example: 36
       responses:
         200:
           description: Transactions retrieved sucessfully.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  properties:
-                    transaction id:
-                      type: integer
-                      example: 506
-                    transaction date:
-                      type: string
-                      example: June 20th, 2020
-                    transaction description:
-                      type: string
-                      example: Golden Sun Bakery
-                    transaction amount:
-                      type: number
-                      example: 500
-                    account balance:
-                      type: number
-                      example: 2087.79
+                $ref: '#/components/schemas/Transactions'
         401:
           description: Unauthorized.
         500:
@@ -65,7 +48,7 @@ paths:
 
   /accounts/{accountId}transactions/{transactionId}:
     get:
-      description: Obtain details of an individual transaction on a certain account.
+      description: Obtain details of an individual transaction on a specific account.
       summary: Detail a transaction
       tags:
         - Transaction Module
@@ -81,33 +64,10 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  properties:
-                    transaction id:
-                      type: integer
-                      example: 506
-                    transaction date:
-                      type: string
-                      example: June 20th, 2020
-                    transaction description:
-                      type: string
-                      example: Golden Sun Bakery
-                    transaction amount:
-                      type: number
-                      example: 500
-                    account balance:
-                      type: number
-                      example: 2087.79
-                    transaction type:
-                      type: string
-                      example: Electronic
-                    transaction category:
-                      type: string
-                      example: Food
-                    transaction notes:
-                      type: string
-                      example: Baguette tradition
+                $ref: "#/components/schemas/Transaction"
+            application/xml:
+              schema:
+                $ref: "#/components/schemas/Transaction"
         401:
           description: Unauthorized.
         500:
@@ -131,14 +91,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/requestBody"
+              $ref: "#/components/schemas/RequestBody"
       responses:
         200:
           description: Transaction details modified sucessfully.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/apiResponse"
+                $ref: "#/components/schemas/ApiResponse"
         401:
           description: Unauthorized.
         403:
@@ -164,14 +124,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/requestBody"
+              $ref: "#/components/schemas/RequestBody"
       responses:
         200:
           description: Transaction details deleted sucessfully.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/apiResponse"
+                $ref: "#/components/schemas/ApiResponse"
         401:
           description: Unauthorized.
         403:
@@ -186,14 +146,14 @@ components:
     authToken:
       type: apiKey
       in: header
-      name: Authorisation
+      name: authorisation
 
   parameters:
     authorisation:
-      name: Authorisation
+      name: authorisation
       required: true
       in: header
-      description: Insert JWT token
+      description: JWT token.
       schema:
         type: string
         scheme: bearer
@@ -216,7 +176,8 @@ components:
         example: 40
 
   schemas:
-    apiResponse:
+    ApiResponse:
+      description: Model containing API response.
       type: object
       properties:
         status:
@@ -234,10 +195,44 @@ components:
             email:
               type: string
               example: james@univex.co.uk
-    requestBody:
+    RequestBody:
+      description: Model containing request body.
       type: object
       properties:
         category:
           type: string
         notes:
           type: string
+    Transaction:
+      description: Model containing transaction details.
+      type: object
+      properties:
+        transaction_id:
+          type: integer
+          example: 506
+        transaction_date:
+          type: string
+          example: June 20th, 2020
+        transaction_description:
+          type: string
+          example: Golden Sun Bakery
+        transaction_amount:
+          type: number
+          example: 500
+        account_balance:
+          type: number
+          example: 2087.79
+        transaction_type:
+          type: string
+          example: Electronic
+        transaction_category:
+          type: string
+          example: Food
+        transaction_notes:
+          type: string
+          example: Danish pastries
+    Transactions:
+      description: Array of transaction details.
+      type: array
+      items:
+        $ref: "#/components/schemas/Transaction"
