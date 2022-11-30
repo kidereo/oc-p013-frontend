@@ -83,8 +83,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="189">
-                <caret line="7" selection-start-line="7" selection-end-line="7" />
+              <first_editor relative-caret-position="432">
+                <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
               </first_editor>
               <second_editor />
             </state>
@@ -94,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/api-transaction-module.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3858">
-              <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+            <state relative-caret-position="7452">
+              <caret line="276" selection-start-line="276" selection-end-line="276" />
             </state>
           </provider>
         </entry>
@@ -264,7 +264,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1668004879192</updated>
-      <workItem from="1668004882059" duration="132173000" />
+      <workItem from="1668004882059" duration="134703000" />
     </task>
     <task id="LOCAL-00001" summary="Installed Redux.">
       <created>1668031002523</created>
@@ -392,11 +392,25 @@
       <option name="project" value="LOCAL" />
       <updated>1669661246584</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="API doc refactoring.">
+      <created>1669743505274</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669743505274</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Added POST and DELETE to the API documentation.">
+      <created>1669759046939</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669759046939</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132173000" />
+    <option name="totallyTimeSpent" value="134703000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="27" y="25" width="1277" height="1283" extended-state="0" />
@@ -441,7 +455,8 @@
     <MESSAGE value="Added API Transaction Module." />
     <MESSAGE value="Updated readme." />
     <MESSAGE value="API doc refactoring." />
-    <option name="LAST_COMMIT_MESSAGE" value="API doc refactoring." />
+    <MESSAGE value="Added POST and DELETE to the API documentation." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added POST and DELETE to the API documentation." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
@@ -655,8 +670,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="189">
-            <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <first_editor relative-caret-position="432">
+            <caret line="16" column="34" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
           </first_editor>
           <second_editor />
         </state>
@@ -664,8 +679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/api-transaction-module.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3858">
-          <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="7452">
+          <caret line="276" selection-start-line="276" selection-end-line="276" />
         </state>
       </provider>
     </entry>

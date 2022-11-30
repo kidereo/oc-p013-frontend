@@ -6,7 +6,7 @@ info:
   description: Transaction Module of the Bank Arget API documentation. This deliverable is part of the Project 013 - Utilisez une API pour un compte utilisateur bancaire avec React of the Développeur d'application - JavaScript React path with OpenClassrooms.
   contact:
     name: kidereo
-    url: https://github.com/kidereo/oc-p013-fronten
+    url: https://github.com/kidereo/oc-p013-frontend
 
 servers:
   - url: http://localhost:3001/api/v1
@@ -245,28 +245,28 @@ components:
       description: Model containing transaction details.
       type: object
       properties:
-        transaction_id:
+        transactionId:
           type: integer
           example: 506
-        transaction_date:
+        transactionDate:
           type: string
           example: June 20th, 2020
-        transaction_description:
+        transactionDescription:
           type: string
           example: Golden Sun Bakery
-        transaction_amount:
+        transactionAmount:
           type: number
           example: 500
-        account_balance:
+        accountBalance:
           type: number
           example: 2087.79
-        transaction_type:
+        transactionType:
           type: string
           example: Electronic
-        transaction_category:
+        transactionCategory:
           type: string
           example: Food
-        transaction_notes:
+        transactionNotes:
           type: string
           example: Danish pastries
     Transactions:
