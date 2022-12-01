@@ -38,7 +38,17 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Transactions'
+                description:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    example: 200
+                  message:
+                    type: string
+                    example: Transactions retrieved sucessfully.
+                  body:
+                    $ref: "#/components/schemas/Transactions"
         401:
           description: Unauthorized.
         404:
@@ -48,6 +58,7 @@ paths:
         503:
           description: Service Unavailable.
 
+  /accounts/{accountId}/transaction:
     post:
       description: Add a new transaction to a specific account.
       summary: Add a new transaction.
@@ -64,14 +75,44 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/Transaction"
+              description: Model containing transaction details.
+              type: object
+              properties:
+                date:
+                  type: string
+                  example: June 20th, 2020
+                description:
+                  type: string
+                  example: Golden Sun Bakery
+                amount:
+                  type: number
+                  example: 50
+                type:
+                  type: string
+                  example: Electronic
+                category:
+                  type: string
+                  example: Food
+                notes:
+                  type: string
+                  example: Danish pastries
       responses:
-        200:
+        201:
           description: Transaction added sucessfully.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                description:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    example: 201
+                  message:
+                    type: string
+                    example: New transaction created.
+                  body:
+                    $ref: "#/components/schemas/Transaction"
         401:
           description: Unauthorized.
         403:
@@ -83,7 +124,7 @@ paths:
         503:
           description: Service Unavailable.
 
-  /accounts/{accountId}transactions/{transactionId}:
+  /accounts/{accountId}/transaction/{transactionId}:
     get:
       description: Obtain details of an individual transaction on a specific account.
       summary: Retrieve transaction details.
@@ -97,14 +138,21 @@ paths:
         - $ref: "#/components/parameters/transactionId"
       responses:
         200:
-          description: Transactions retrieved sucessfully.
+          description: Transaction retrieved sucessfully.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Transaction"
-            application/xml:
-              schema:
-                $ref: "#/components/schemas/Transaction"
+                description:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    example: 200
+                  message:
+                    type: string
+                    example: Transaction details retrieved sucessfully.
+                  body:
+                    $ref: "#/components/schemas/Transaction"
         401:
           description: Unauthorized.
         404:
@@ -131,14 +179,24 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/RequestBody"
+              $ref: "#/components/schemas/PutRequestBody"
       responses:
-        200:
-          description: Transaction details modified sucessfully.
+        201:
+          description: Transaction modified sucessfully.
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ApiResponse"
+                description:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    example: 201
+                  message:
+                    type: string
+                    example: Transaction modified sucessfully.
+                  body:
+                    $ref: "#/components/schemas/Transaction"
         401:
           description: Unauthorized.
         403:
@@ -233,42 +291,50 @@ components:
             email:
               type: string
               example: james@univex.co.uk
-    RequestBody:
-      description: Model containing request body.
+    PutRequestBody:
+      description: Model containing the put request body.
       type: object
       properties:
         category:
           type: string
+          example: Food
         notes:
           type: string
+          example: Danish pastries
     Transaction:
       description: Model containing transaction details.
       type: object
       properties:
-        transactionId:
+        id:
           type: integer
           example: 506
-        transactionDate:
+        date:
           type: string
-          example: June 20th, 2020
-        transactionDescription:
+          example: 2020-06-20 11:00:00
+        description:
           type: string
           example: Golden Sun Bakery
-        transactionAmount:
+        amount:
           type: number
-          example: 500
+          example: 50
         accountBalance:
           type: number
           example: 2087.79
-        transactionType:
+        type:
           type: string
           example: Electronic
-        transactionCategory:
+        category:
           type: string
           example: Food
-        transactionNotes:
+        notes:
           type: string
           example: Danish pastries
+        dateCreated:
+          type: string
+          example: 2020-06-20 11:00:00
+        dateModified:
+          type: string
+          example: 2020-06-20 11:00:00
     Transactions:
       description: Array of transaction details.
       type: array
