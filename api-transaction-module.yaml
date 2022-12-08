@@ -24,14 +24,18 @@ paths:
       parameters:
         - $ref: "#/components/parameters/authorisation"
         - $ref: "#/components/parameters/accountId"
-        - name: bodyLimit
+        - name: startDate
           in: query
-          description: Number of transactions returned.
+          description: First day of the month.
           schema:
-            type: integer
-            minimum: 5
-            maximum: 50
-            example: 36
+            type: string
+            example: 2020-06-01 00:00:00
+        - name: endDate
+          in: query
+          description: Last day of the month.
+          schema:
+            type: string
+            example: 2020-06-30 23:59:59
       responses:
         200:
           description: Transactions retrieved sucessfully.
