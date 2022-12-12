@@ -55,8 +55,6 @@ export default function Profile() {
     function submitUpdateForm(event) {
         event.preventDefault();
         dispatch(editProfile(userData));
-        setUpdateForm(false);
-        dispatch(loadProfile());
         window.location.reload();
     }
 
@@ -77,9 +75,9 @@ export default function Profile() {
                                         type="text"
                                         name="lastName"
                                         id="lastName"
+                                        placeholder="Last Name here"
                                         defaultValue={lastName}
                                         onChange={updateFormDataState}
-                                        placeholder="Last Name here"
                                     />
                                 </div>
                                 <div className="input-wrapper">
@@ -88,9 +86,9 @@ export default function Profile() {
                                         type="text"
                                         name="firstName"
                                         id="firstName"
-                                        onChange={updateFormDataState}
-                                        defaultValue={firstName}
                                         placeholder="First Name here"
+                                        defaultValue={firstName}
+                                        onChange={updateFormDataState}
                                     />
                                 </div>
                             </div>
