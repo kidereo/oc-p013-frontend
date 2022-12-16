@@ -24,7 +24,7 @@ export default function Profile() {
         if (isRemembered) localStorage.setItem("rememberMe", JSON.stringify({isRemembered, email}));
         dispatch(loadProfile());
         //navigate(`/profile/${id}`);
-    }, [dispatch, navigate, isError, errorMessage, id, isRemembered, email]);
+    }, [dispatch, navigate, isError, errorMessage, id, isRemembered, email, lastName, firstName]);
 
     /**
      * Handle change of user details.

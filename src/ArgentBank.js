@@ -9,7 +9,6 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import Profile from "./pages/Profile";
-//import ProfileOutlet from "./pages/ProfileOutlet";
 
 /**
  * Main app file.
